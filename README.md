@@ -4,7 +4,7 @@
 
 * 실제 사용 캡처
 
-<img src="https://user-images.githubusercontent.com/63894186/155709549-9642da78-4c11-4a7b-879d-b2bce81b386a.png"  width="300" height="600"/><img src="https://user-images.githubusercontent.com/63894186/155709579-fe4b283b-4daa-4513-9f35-b537fb4b56f7.png"  width="300" height="600"/><img src="https://user-images.githubusercontent.com/63894186/155709612-90b66943-9d16-4b6a-95cc-89ff3666dced.png"  width="300" height="600"/>
+<img src="https://user-images.githubusercontent.com/63894186/155709549-9642da78-4c11-4a7b-879d-b2bce81b386a.png"  width="200" height="400"/><img src="https://user-images.githubusercontent.com/63894186/155709579-fe4b283b-4daa-4513-9f35-b537fb4b56f7.png"  width="200" height="400"/><img src="https://user-images.githubusercontent.com/63894186/155709612-90b66943-9d16-4b6a-95cc-89ff3666dced.png"  width="200" height="400"/>
 
 * Download : https://play.google.com/store/apps/details?id=com.swkim.weight_timer
 
