@@ -16,8 +16,11 @@ class Start_display : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val intent = Intent(this@Start_display, MainActivity::class.java)
+        val intentCalendar = Intent(this@Start_display, Calendar::class.java)
 
-
+        binding.calendarButton.setOnClickListener {
+            startActivity(intentCalendar)
+        }
 
         binding.weightStart.setOnClickListener {
             if (binding.setCount.text =="0" || binding.restCount.text == "0") {

@@ -24,13 +24,12 @@ class MainActivity : AppCompatActivity() {
     private var isRunning = false
     private var timeTask: Timer? = null
     private var timerTask : Timer? = null
-    private var timelap : Int = 1
     private var isResting = false
     var set : Int = 0
     private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
+        val doneIntent = Intent(this@MainActivity, Calendar::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -76,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.restButton.setOnClickListener {
+            // 휴식중이 아니고 + 타이머가 돌아가고있고 + 목표 세트에 도달하지 않았고 + 운동이 끝나지 않았을 때 실행
             if (!isResting && isRunning && set != Integer.parseInt(binding.goalSet.text.toString()) && !complete) {
                 isResting = !isResting
                 var goalset = Integer.parseInt(binding.goalSet.text.toString())
@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                     isRunning = false
                     isResting = true
                     complete = true
+                    doneIntent.putExtra("isDone", complete)
                 }
 
                 else {
