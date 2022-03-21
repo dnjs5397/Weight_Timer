@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762879902208",
+    "project_id": "weight-timer",
+    "storage_bucket": "weight-timer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762879902208:android:efbc5b6712a97a84740ee5",
+        "android_client_info": {
+          "package_name": "com.swkim.weight_timer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762879902208-tqskrilinmh53737ti3bh09vjblmn7vc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBI-XlzBI7oCpePYG8W1_81mFbo_bawpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762879902208-tqskrilinmh53737ti3bh09vjblmn7vc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
