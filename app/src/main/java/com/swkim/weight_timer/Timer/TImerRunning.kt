@@ -1,24 +1,24 @@
-package com.swkim.weight_timer
+package com.swkim.weight_timer.Timer
 
-import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.*
 import android.widget.Button
-import android.widget.Chronometer
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.swkim.weight_timer.Calendar.Calendar
+import com.swkim.weight_timer.Preset.PresetDatabase
+import com.swkim.weight_timer.Preset.PresetEntity
+import com.swkim.weight_timer.R
 import com.swkim.weight_timer.databinding.ActivityMainBinding
-import java.sql.Time
 import java.util.*
 import kotlin.concurrent.timer
 
-class MainActivity : AppCompatActivity() {
+class TImerRunning : AppCompatActivity() {
+    lateinit var db : PresetDatabase
+    var presetList = listOf<PresetEntity>()
+
     private var complete = false
     private var time = 0
     private var isRunning = false
@@ -29,7 +29,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val doneIntent = Intent(this@MainActivity, Calendar::class.java)
+        db = PresetDatabase.getInstance(this)!!
+
+        val doneIntent = Intent(this@TImerRunning, Calendar::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -88,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                     timerTask?.cancel()
                     binding.weighInfo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 22F)
                     binding.goingSet.text = set.toString()
-                    binding.weighInfo.text = "수고하셨습니다!\n목표한 세트 수에 도달했습니다."
+                    binding.weighInfo.text = getString(R.string.end_string)
                     isRunning = false
                     isResting = true
                     complete = true
@@ -147,8 +149,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun start() {
         binding.startButton.setImageResource(R.drawable.ic_baseline_pause_24)
-        if (binding.weighInfo.text == "일시정지") {
-            binding.weighInfo.text = "운동 중.."
+        if (binding.weighInfo.text == getString(R.string.pause)) {
+            binding.weighInfo.text = getString(R.string.weight_ing)
         }
         timeTask = timer(period = 10) {
             time++

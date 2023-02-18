@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.swkim.weight_timer.Calendar.Calendar
+import com.swkim.weight_timer.Timer.TImerRunning
 import com.swkim.weight_timer.databinding.ActivityStartDisplayBinding
 
-class Start_display : AppCompatActivity() {
+class StartDisplay : AppCompatActivity() {
     var set = 0
     var rest = 0
     var backPressedTime : Long = 0
@@ -15,15 +17,15 @@ class Start_display : AppCompatActivity() {
         binding = ActivityStartDisplayBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val intent = Intent(this@Start_display, MainActivity::class.java)
-        val intentCalendar = Intent(this@Start_display, Calendar::class.java)
+        val intent = Intent(this@StartDisplay, TImerRunning::class.java)
+        val intentCalendar = Intent(this@StartDisplay, Calendar::class.java)
 
         binding.calendarButton.setOnClickListener {
             startActivity(intentCalendar)
         }
 
         binding.weightStart.setOnClickListener {
-            if (binding.setCount.text =="0" || binding.restCount.text == "0") {
+            if (binding.setCount.text == "0" || binding.restCount.text == "0") {
                 Toast.makeText(this, "올바른 세트 수 또는 휴식 시간을 입력하세요.", Toast.LENGTH_SHORT).show()
             }
             else {

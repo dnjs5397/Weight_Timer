@@ -1,4 +1,4 @@
-package com.swkim.weight_timer
+package com.swkim.weight_timer.DayDecorator
 
 import android.content.Context
 import android.graphics.Color

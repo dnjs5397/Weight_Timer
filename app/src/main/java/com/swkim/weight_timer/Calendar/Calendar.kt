@@ -1,9 +1,13 @@
-package com.swkim.weight_timer
+package com.swkim.weight_timer.Calendar
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
+import com.swkim.weight_timer.DayDecorator.SaturdayDecorator
+import com.swkim.weight_timer.DayDecorator.SundayDecorator
+import com.swkim.weight_timer.DayDecorator.TodayDecorator
+import com.swkim.weight_timer.R
 import com.swkim.weight_timer.databinding.ActivityCalendarBinding
 
 class Calendar : AppCompatActivity() {
@@ -19,7 +23,7 @@ class Calendar : AppCompatActivity() {
         binding.calendarView.selectedDate = CalendarDay.today()
         val calendar = findViewById<MaterialCalendarView>(R.id.calendar_view)
         calendar.state().edit()
-            .setMinimumDate(CalendarDay.from(2022,0,1))
+            .setMinimumDate(CalendarDay.from(2023,0,1))
             .setMaximumDate(CalendarDay.from(2030,1,31))
             .commit()
 
