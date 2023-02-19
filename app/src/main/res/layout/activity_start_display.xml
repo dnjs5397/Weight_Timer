@@ -39,7 +39,7 @@
             android:padding="5dp"
             android:text="진행 세트 수"
             android:textColor="#998FEF"
-            android:textSize="35dp" />
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
                 android:fontFamily="@font/minsans_regular"
                 android:text="0"
                 android:textColor="#464958"
-                android:textSize="35dp" />
+                android:textSize="30sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/set_up_button"
@@ -84,7 +84,7 @@
             android:padding="5dp"
             android:text="세트 간 휴식 시간"
             android:textColor="#998FEF"
-            android:textSize="35dp" />
+            android:textSize="30dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
                 android:fontFamily="@font/minsans_regular"
                 android:text="0"
                 android:textColor="#464958"
-                android:textSize="35dp" />
+                android:textSize="30dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/rest_up_button"
@@ -122,8 +122,8 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/weight_start"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_background"
@@ -136,38 +136,39 @@
         android:orientation="vertical"
         android:id="@+id/line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:layout_marginTop="20dp"
         android:background="@color/mainColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/addPreset" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addPreset"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/preset_button_background"
+        android:fontFamily="@font/minsans_medium"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:fontFamily="@font/minsans_medium"
-        android:textColor="@color/white"
         android:text="+ 새 프리셋 추가"
+        android:textColor="@color/white"
         android:textSize="11sp"
-        android:layout_margin="7dp"
-        android:background="@drawable/preset_button_background"
-        android:id="@+id/addPreset"
-        app:layout_constraintTop_toBottomOf="@id/line"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainLayout" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPreset">
+        app:layout_constraintTop_toBottomOf="@+id/line">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:listitem="@layout/preset_recyclerview" />
 
     </ScrollView>
 
