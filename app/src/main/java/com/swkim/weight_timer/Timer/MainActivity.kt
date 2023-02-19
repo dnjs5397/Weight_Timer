@@ -8,16 +8,12 @@ import android.view.*
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import com.swkim.weight_timer.Calendar.Calendar
-import com.swkim.weight_timer.Preset.PresetDatabase
-import com.swkim.weight_timer.Preset.PresetEntity
 import com.swkim.weight_timer.R
 import com.swkim.weight_timer.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.concurrent.timer
 
-class TImerRunning : AppCompatActivity() {
-    lateinit var db : PresetDatabase
-    var presetList = listOf<PresetEntity>()
+class MainActivity : AppCompatActivity() {
 
     private var complete = false
     private var time = 0
@@ -29,9 +25,7 @@ class TImerRunning : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        db = PresetDatabase.getInstance(this)!!
-
-        val doneIntent = Intent(this@TImerRunning, Calendar::class.java)
+        val doneIntent = Intent(this@MainActivity, Calendar::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

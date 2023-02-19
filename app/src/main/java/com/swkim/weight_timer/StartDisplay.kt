@@ -1,24 +1,57 @@
 package com.swkim.weight_timer
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.swkim.weight_timer.Calendar.Calendar
-import com.swkim.weight_timer.Timer.TImerRunning
+import com.swkim.weight_timer.Preset.PresetDatabase
+import com.swkim.weight_timer.Preset.PresetEntity
+import com.swkim.weight_timer.Timer.MainActivity
 import com.swkim.weight_timer.databinding.ActivityStartDisplayBinding
 
 class StartDisplay : AppCompatActivity() {
+    lateinit var db : PresetDatabase
+    var presetList = listOf<PresetEntity>()
+
     var set = 0
     var rest = 0
     var backPressedTime : Long = 0
     private lateinit var binding : ActivityStartDisplayBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        db = PresetDatabase.getInstance(this)!!
+
         binding = ActivityStartDisplayBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val intent = Intent(this@StartDisplay, TImerRunning::class.java)
+        val intent = Intent(this@StartDisplay, MainActivity::class.java)
         val intentCalendar = Intent(this@StartDisplay, Calendar::class.java)
+
+        binding.addPreset.setOnClickListener {
+//            val name = PresetEntity(null, )
+        }
+
+        fun insertPreset(preset : PresetEntity) {
+            val insertTask = @SuppressLint("StaticFieldLeak")
+            object : AsyncTask<Unit, Unit, Unit>() {
+
+                override fun doInBackground(vararg p0: Unit?) {
+                    db.presetDAO().insert(preset)
+                }
+
+                override fun onPostExecute(result: Unit?) {
+                    super.onPostExecute(result)
+                }
+            }
+
+            insertTask.execute()
+        }
+
+        fun getAllPreset() {
+
+        }
 
         binding.calendarButton.setOnClickListener {
             startActivity(intentCalendar)
