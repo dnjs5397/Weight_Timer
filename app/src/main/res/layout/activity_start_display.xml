@@ -166,9 +166,9 @@
         app:layout_constraintTop_toBottomOf="@+id/line">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/presetRecycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/preset_recyclerview" />
+            android:layout_height="match_parent" />
 
     </ScrollView>
 
