@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Weight_Timer">
         <activity
+            android:name=".PresetPopup"
+            android:exported="false" />
+        <activity
             android:name=".Calendar.Calendar"
             android:exported="false" />
         <activity
