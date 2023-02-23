@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.swkim.weight_timer.Calendar.Calendar
 import com.swkim.weight_timer.Preset.Preset
-import com.swkim.weight_timer.Preset.PresetEntity
+import com.swkim.weight_timer.Preset.PresetPopup
 import com.swkim.weight_timer.Timer.MainActivity
 import com.swkim.weight_timer.databinding.ActivityStartDisplayBinding
 
@@ -32,7 +32,8 @@ class StartDisplay : AppCompatActivity() {
         binding = ActivityStartDisplayBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val intent = Intent(this@StartDisplay, MainActivity::class.java)
+
+        val mainIntent = Intent(this@StartDisplay, MainActivity::class.java)
         val intentCalendar = Intent(this@StartDisplay, Calendar::class.java)
         // 테스트 데이터
 //        presetData.add(Preset("등운동", "5", "60"))
@@ -68,7 +69,7 @@ class StartDisplay : AppCompatActivity() {
         }
 
         binding.addPreset.setOnClickListener {
-
+            startActivity(Intent(this@StartDisplay, PresetPopup::class.java))
         }
 
 
@@ -84,9 +85,9 @@ class StartDisplay : AppCompatActivity() {
             else {
                 var goalSet: String = binding.setCount.text.toString()
                 var restSet: String = binding.restCount.text.toString()
-                intent.putExtra("goal_set", goalSet)
-                intent.putExtra("rest_time", restSet)
-                startActivity(intent)
+                mainIntent.putExtra("goal_set", goalSet)
+                mainIntent.putExtra("rest_time", restSet)
+                startActivity(mainIntent)
             }
         }
 

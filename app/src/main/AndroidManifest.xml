@@ -8,9 +8,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Weight_Timer">
+
+
         <activity
-            android:name=".PresetPopup"
-            android:exported="false" />
+            android:name=".Preset.PresetPopup"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"
+            android:exported="true" />
+
         <activity
             android:name=".Calendar.Calendar"
             android:exported="false" />
