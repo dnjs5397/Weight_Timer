@@ -33,6 +33,7 @@ class StartDisplay : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val presetIntent = Intent(this@StartDisplay, PresetPopup::class.java)
         val mainIntent = Intent(this@StartDisplay, MainActivity::class.java)
         val intentCalendar = Intent(this@StartDisplay, Calendar::class.java)
         // 테스트 데이터
@@ -70,6 +71,10 @@ class StartDisplay : AppCompatActivity() {
 
         binding.addPreset.setOnClickListener {
             startActivity(Intent(this@StartDisplay, PresetPopup::class.java))
+            val setNum : String? = presetIntent.getStringExtra("setNum")
+            val setRest : String? = presetIntent.getStringExtra("setRest")
+            val setName : String? = presetIntent.getStringExtra("inputName")
+
         }
 
 
@@ -80,11 +85,11 @@ class StartDisplay : AppCompatActivity() {
 
         binding.weightStart.setOnClickListener {
             if (binding.setCount.text == "0" || binding.restCount.text == "0") {
-                Toast.makeText(this, "올바른 세트 수 또는 휴식 시간을 입력하세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "올바른 세트 수 또는 휴식 시간을 입력 하세요.", Toast.LENGTH_SHORT).show()
             }
             else {
-                var goalSet: String = binding.setCount.text.toString()
-                var restSet: String = binding.restCount.text.toString()
+                val goalSet: String = binding.setCount.text.toString()
+                val restSet: String = binding.restCount.text.toString()
                 mainIntent.putExtra("goal_set", goalSet)
                 mainIntent.putExtra("rest_time", restSet)
                 startActivity(mainIntent)
@@ -117,6 +122,7 @@ class StartDisplay : AppCompatActivity() {
 
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (System.currentTimeMillis() - backPressedTime < 2000) {
             finish()

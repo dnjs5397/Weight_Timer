@@ -18,6 +18,27 @@
 
         <LinearLayout
             android:layout_gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/setName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/inputName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/minsans_medium"
+                android:hint="운동 이름을 입력 하세요"
+                android:textColorHint="@color/mainColor"
+                android:textColor="@color/mainColor"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_gravity="center"
             android:id="@+id/setRest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
