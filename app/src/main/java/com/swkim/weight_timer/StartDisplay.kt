@@ -75,6 +75,7 @@ class StartDisplay : AppCompatActivity() {
             val setRest : String? = presetIntent.getStringExtra("setRest")
             val setName : String? = presetIntent.getStringExtra("inputName")
 
+            presetData.add(Preset(setName.toString(), setNum.toString(), setRest.toString()))
         }
 
 
