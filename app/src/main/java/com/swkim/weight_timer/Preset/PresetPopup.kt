@@ -23,10 +23,10 @@ class PresetPopup : AppCompatActivity() {
 
         binding.yesBtn.setOnClickListener {
             if (binding.setInput.toString() != "" && binding.restInput.toString() != "" &&
-                    binding.inputName.toString() != "") {
+                    binding.nameInput.toString() != "") {
                 startIntent.putExtra("setNum", binding.setInput.toString())
                 startIntent.putExtra("restNum", binding.restInput.toString())
-                startIntent.putExtra("restNum", binding.inputName.toString())
+                startIntent.putExtra("setName", binding.nameInput.toString())
             }
         }
 

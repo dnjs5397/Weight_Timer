@@ -73,7 +73,7 @@ class StartDisplay : AppCompatActivity() {
             startActivity(Intent(this@StartDisplay, PresetPopup::class.java))
             val setNum : String? = presetIntent.getStringExtra("setNum")
             val setRest : String? = presetIntent.getStringExtra("setRest")
-            val setName : String? = presetIntent.getStringExtra("inputName")
+            val setName : String? = presetIntent.getStringExtra("setName")
 
             presetData.add(Preset(setName.toString(), setNum.toString(), setRest.toString()))
         }
