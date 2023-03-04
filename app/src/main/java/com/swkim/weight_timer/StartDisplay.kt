@@ -1,13 +1,16 @@
 package com.swkim.weight_timer
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.swkim.weight_timer.Calendar.Calendar
@@ -20,20 +23,19 @@ class StartDisplay : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter : RecyclerView.Adapter<*>
     private lateinit var viewManager : RecyclerView.LayoutManager
-
+    var var1 = 0
     private val presetData = arrayListOf<Preset>()
 
     var set = 0
     var rest = 0
     var backPressedTime : Long = 0
     private lateinit var binding : ActivityStartDisplayBinding
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
-
         binding = ActivityStartDisplayBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val presetIntent = Intent(this@StartDisplay, PresetPopup::class.java)
         val mainIntent = Intent(this@StartDisplay, MainActivity::class.java)
         val intentCalendar = Intent(this@StartDisplay, Calendar::class.java)
         // 테스트 데이터
@@ -69,20 +71,31 @@ class StartDisplay : AppCompatActivity() {
             adapter = viewAdapter
         }
 
+
         binding.addPreset.setOnClickListener {
-            startActivity(Intent(this@StartDisplay, PresetPopup::class.java))
-            val setNum : String? = presetIntent.getStringExtra("setNum")
-            val setRest : String? = presetIntent.getStringExtra("setRest")
-            val setName : String? = presetIntent.getStringExtra("setName")
 
-            presetData.add(Preset(setName.toString(), setNum.toString(), setRest.toString()))
+            if (binding.inputSet.text.toString() != "" &&
+                binding.inputRest.text.toString() != "" &&
+                binding.inputName.text.toString() != "") {
+
+                presetData.add(
+                    Preset(binding.inputName.text.toString(),
+                         binding.inputSet.text.toString(),
+                         binding.inputRest.text.toString()) )
+
+                binding.inputSet.setText("")
+                binding.inputRest.setText("")
+                binding.inputName.setText("")
+
+
+            }
+            else {
+                Toast.makeText(this, "값을 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+
+            recyclerView.adapter?.notifyDataSetChanged()
         }
 
-
-
-        binding.calendarButton.setOnClickListener {
-            startActivity(intentCalendar)
-        }
 
         binding.weightStart.setOnClickListener {
             if (binding.setCount.text == "0" || binding.restCount.text == "0") {

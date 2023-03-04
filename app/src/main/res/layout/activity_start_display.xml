@@ -7,18 +7,93 @@
     tools:context=".StartDisplay"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/calendar_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="right"
-        android:background="@color/white"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_baseline_calendar_month_24"
+
+    <LinearLayout
+        android:id="@+id/middle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mainLayout">
+
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/inputSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/minsans_medium"
+            android:textColor="@color/mainColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/minsans_medium"
+            android:text="세트"
+            android:textColor="@color/mainColor"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/inputRest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/minsans_medium"
+            android:textColor="@color/mainColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/minsans_medium"
+            android:text="초 휴식"
+            android:textColor="@color/mainColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/minsans_medium"
+            android:text="부위 : "
+            android:textColor="@color/mainColor"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/inputName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/minsans_medium"
+            android:textColor="@color/mainColor"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="10dp"
+            android:id="@+id/addPreset"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/preset_button_background"
+            android:fontFamily="@font/minsans_medium"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="+ 새 프리셋 추가"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/mainLayout"
@@ -28,7 +103,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendar_button">
+        app:layout_constraintTop_toBottomOf="@+id/middle">
 
         <TextView
             android:layout_width="wrap_content"
@@ -127,36 +202,26 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_background"
-            android:src="@drawable/ic_baseline_whatshot_24"
-            android:text="득근!" />
+            android:src="@drawable/ic_baseline_whatshot_24" />
 
     </LinearLayout>
 
+
+
+
+
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginTop="20dp"
         android:background="@color/mainColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPreset" />
+        app:layout_constraintTop_toBottomOf="@+id/mainLayout" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/addPreset"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/preset_button_background"
-        android:fontFamily="@font/minsans_medium"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:text="+ 새 프리셋 추가"
-        android:textColor="@color/white"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainLayout" />
+
 
     <ScrollView
         android:layout_width="match_parent"
